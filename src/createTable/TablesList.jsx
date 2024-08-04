@@ -20,6 +20,7 @@ import { useEffect, useRef } from "react";
 import { DateInput, TimeInput } from "@mantine/dates";
 import axios from "axios";
 import {
+  IconArrowBack,
   IconCalendar,
   IconChevronDown,
   IconCircleCheck,
@@ -319,18 +320,29 @@ const Layout = () => {
                         <Flex gap={5}>
                           {form.values.selectedDataToEdit === index &&
                           form.values.isPostponeClicked ? (
-                            <ActionIcon
-                              bg="#E4ECF7"
-                              c="blue"
-                              disabled={form.values.editedDate === null}
-                              h={36}
-                              w={30}
-                              onClick={() =>
-                                onHandleChangeTimeAndDate(element, "date")
-                              }
-                            >
-                              <IconDeviceFloppy />
-                            </ActionIcon>
+                           <Flex gap={5}>
+                              <ActionIcon
+                                bg="#E4ECF7"
+                                c="blue"
+                                disabled={form.values.editedDate === null}
+                                h={36}
+                                w={30}
+                                onClick={() =>
+                                  onHandleChangeTimeAndDate(element, "date")
+                                }
+                              >
+                                <IconDeviceFloppy />
+                              </ActionIcon>
+                              <ActionIcon
+                                bg="#E4ECF7"
+                                c="blue"
+                                h={36}
+                                w={30}
+                                onClick={ ()=> form.setFieldValue("isPostponeClicked", false) }
+                              >
+                                <IconArrowBack />
+                              </ActionIcon>
+                           </Flex>
                           ) : (
                             <Menu
                               width={180}
