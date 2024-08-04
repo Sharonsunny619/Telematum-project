@@ -35,6 +35,7 @@ import {
 import { useForm } from "@mantine/form";
 import "@mantine/dates/styles.css";
 
+
 const Layout = () => {
   const form = useForm({
     initialValues: {
@@ -51,12 +52,15 @@ const Layout = () => {
     },
   });
 
+
   const ref = useRef(null);
   const startIndex = (form.values.currentPage - 1) * form.values.itemsPerPage;
   const endIndex = form.values.currentPage * form.values.itemsPerPage;
+
   const totalPages = Math.ceil(
     form.values.data.length / form.values.itemsPerPage
   );
+  
   const pickerControl = (
     <ActionIcon
       variant="subtle"
